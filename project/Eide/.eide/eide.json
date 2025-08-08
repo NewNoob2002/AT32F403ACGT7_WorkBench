@@ -1,0 +1,365 @@
+{
+  "name": "AT32F403ACGT7_WorkBench",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "user",
+        "files": [
+          {
+            "path": "../src/at32f403a_407_wk_config.c"
+          },
+          {
+            "path": "../src/at32f403a_407_int.c"
+          },
+          {
+            "path": "../src/wk_system.c"
+          },
+          {
+            "path": "../src/wk_debug.c"
+          },
+          {
+            "path": "../src/wk_spi.c"
+          },
+          {
+            "path": "../src/wk_usart.c"
+          },
+          {
+            "path": "../src/main.cpp"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "firmware",
+        "files": [
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_acc.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_adc.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_bpr.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_can.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_crc.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_crm.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_dac.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_debug.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_dma.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_emac.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_exint.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_flash.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_gpio.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_i2c.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_misc.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_pwc.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_rtc.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_sdio.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_spi.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_tmr.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_usart.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_usb.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_wdt.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_wwdt.c"
+          },
+          {
+            "path": "../../libraries/drivers/src/at32f403a_407_xmc.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "cmsis",
+        "files": [
+          {
+            "path": "../MDK_V5/startup_at32f403a_407.s"
+          },
+          {
+            "path": "../../libraries/cmsis/cm4/device_support/system_at32f403a_407.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Arduino",
+        "files": [
+          {
+            "path": "../../Arduino/variants/at32f403a_xx/variant.cpp"
+          }
+        ],
+        "folders": [
+          {
+            "name": "drivers",
+            "files": [],
+            "folders": [
+              {
+                "name": "gpio",
+                "files": [
+                  {
+                    "path": "../../Arduino/drivers/gpio/gpio.cpp"
+                  }
+                ],
+                "folders": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "platform",
+        "files": [],
+        "folders": [
+          {
+            "name": "core",
+            "files": [
+              {
+                "path": "../../platform/core/extend_SRAM.c"
+              }
+            ],
+            "folders": []
+          }
+        ]
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "8bff75e3ee1e5db7a11593a9054c17d0"
+  },
+  "targets": {
+    "AT32F403ACGT7_WorkBench": {
+      "excludeList": [],
+      "toolchain": "AC6",
+      "compileConfig": {
+        "cpuType": "Cortex-M4",
+        "archExtensions": "",
+        "floatingPointHardware": "single",
+        "scatterFilePath": "",
+        "useCustomScatterFile": false,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x38000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x100000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "JLink",
+      "uploadConfig": {
+        "bin": "",
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "null",
+          "cpuName": "null"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {},
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "../../libraries/drivers/inc",
+          "../../libraries/cmsis/cm4/core_support",
+          "../../libraries/cmsis/cm4/device_support",
+          "../../Arduino",
+          "../../platform",
+          "../inc",
+          ".cmsis/include",
+          "../MDK_V5/RTE/_AT32F403ACGT7_WorkBench"
+        ],
+        "libList": [],
+        "defineList": [
+          "AT32F403ACGT7",
+          "USE_STDPERIPH_DRIVER",
+          "AT_START_F403A_V1"
+        ]
+      },
+      "builderOptions": {
+        "AC6": {
+          "version": 3,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "use-microLIB": false,
+            "output-debug-info": "enable"
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-1",
+            "language-c": "c99",
+            "language-cpp": "c++11",
+            "link-time-optimization": false,
+            "one-elf-section-per-function": true,
+            "short-enums#wchar": true,
+            "warnings": "ac5-like-warnings"
+          },
+          "asm-compiler": {
+            "$use": "asm-auto",
+            "misc-controls": ""
+          },
+          "linker": {
+            "$outputTaskExcludes": [
+              ".bin"
+            ],
+            "output-format": "elf",
+            "misc-controls": "--diag_suppress=L6329",
+            "xo-base": "",
+            "ro-base": "0x08000000",
+            "rw-base": "0x20000000"
+          }
+        }
+      }
+    }
+  },
+  "version": "3.6"
+}
