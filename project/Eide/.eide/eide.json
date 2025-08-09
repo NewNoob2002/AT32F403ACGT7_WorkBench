@@ -11,6 +11,9 @@
         "name": "user",
         "files": [
           {
+            "path": "../src/main.cpp"
+          },
+          {
             "path": "../src/at32f403a_407_wk_config.c"
           },
           {
@@ -27,9 +30,6 @@
           },
           {
             "path": "../src/wk_usart.c"
-          },
-          {
-            "path": "../src/main.cpp"
           }
         ],
         "folders": []
@@ -128,31 +128,6 @@
         "folders": []
       },
       {
-        "name": "Arduino",
-        "files": [
-          {
-            "path": "../../Arduino/variants/at32f403a_xx/variant.cpp"
-          }
-        ],
-        "folders": [
-          {
-            "name": "drivers",
-            "files": [],
-            "folders": [
-              {
-                "name": "gpio",
-                "files": [
-                  {
-                    "path": "../../Arduino/drivers/gpio/gpio.cpp"
-                  }
-                ],
-                "folders": []
-              }
-            ]
-          }
-        ]
-      },
-      {
         "name": "platform",
         "files": [],
         "folders": [
@@ -166,6 +141,64 @@
             "folders": []
           }
         ]
+      },
+      {
+        "name": "Arduino",
+        "files": [
+          {
+            "path": "../../Arduino/itoa.c"
+          },
+          {
+            "path": "../../Arduino/delay.c"
+          },
+          {
+            "path": "../../Arduino/yield.c"
+          },
+          {
+            "path": "../../Arduino/abi.cpp"
+          },
+          {
+            "path": "../../Arduino/Print.cpp"
+          },
+          {
+            "path": "../../Arduino/Stream.cpp"
+          },
+          {
+            "path": "../../Arduino/WMath.cpp"
+          },
+          {
+            "path": "../../Arduino/WString.cpp"
+          },
+          {
+            "path": "../../Arduino/variants/at32f403a_xx/variant.cpp"
+          }
+        ],
+        "folders": [
+          {
+            "name": "avr",
+            "files": [
+              {
+                "path": "../../Arduino/avr/dtostrf.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "drivers",
+            "files": [
+              {
+                "path": "../../Arduino/drivers/gpio/gpio.cpp"
+              },
+              {
+                "path": "../../Arduino/drivers/usart/usart.cpp"
+              },
+              {
+                "path": "../../Arduino/drivers/usart/usart_config.cpp"
+              }
+            ],
+            "folders": []
+          }
+        ]
       }
     ]
   },
@@ -173,7 +206,7 @@
   "deviceName": null,
   "packDir": null,
   "miscInfo": {
-    "uid": "8bff75e3ee1e5db7a11593a9054c17d0"
+    "uid": "3a99bcf2d2f015388eb7474b45ea23ca"
   },
   "targets": {
     "AT32F403ACGT7_WorkBench": {
@@ -336,7 +369,7 @@
           },
           "c/cpp-compiler": {
             "optimization": "level-1",
-            "language-c": "c99",
+            "language-c": "c11",
             "language-cpp": "c++11",
             "link-time-optimization": false,
             "one-elf-section-per-function": true,

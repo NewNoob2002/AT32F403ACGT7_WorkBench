@@ -17,4 +17,5 @@ version: "2.1"
 options:
     AT32F403ACGT7_WorkBench:
         files: {}
-        virtualPathFiles: {}
+        virtualPathFiles:
+            <virtual_root>/Arduino/variant.cpp: ""

@@ -791,7 +791,7 @@
   </Group>
 
   <Group>
-    <GroupName>Arduino/drivers/gpio</GroupName>
+    <GroupName>Arduino/drivers</GroupName>
     <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
@@ -805,6 +805,30 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\Arduino\drivers\gpio\gpio.cpp</PathWithFileName>
       <FilenameWithoutPath>gpio.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>47</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Arduino\drivers\usart\usart.cpp</PathWithFileName>
+      <FilenameWithoutPath>usart.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>48</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Arduino\drivers\usart\usart_config.cpp</PathWithFileName>
+      <FilenameWithoutPath>usart_config.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
