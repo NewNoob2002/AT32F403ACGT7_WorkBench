@@ -336,7 +336,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>AT32F403ACGT7,USE_STDPERIPH_DRIVER,AT_START_F403A_V1</Define>
+              <Define>AT32F403ACGT7,USE_STDPERIPH_DRIVER,AT_START_F403A_V1,__CORE_DEBUG</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\libraries\drivers\inc;..\..\libraries\cmsis\cm4\core_support;..\..\libraries\cmsis\cm4\device_support;..\..\Arduino;..\..\platform;..\inc</IncludePath>
             </VariousControls>

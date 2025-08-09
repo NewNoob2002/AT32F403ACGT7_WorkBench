@@ -17,27 +17,27 @@ struct usart_peripheral_config_t
      * @brief USART peripheral clock id
      * @note in FCG1
      */
-    uint32_t peripheral_clock_id;
+    crm_periph_clock_type peripheral_clock_id;
 
-    //    /**
-    //  * @brief USART pin clock id
-    //  * @note in FCG1
-    //  */
-    // uint32_t gpio_clock_id;
+       /**
+     * @brief USART pin clock id
+     * @note in FCG1
+     */
+    crm_periph_clock_type gpio_clock_id;
 
     /**
      * @brief pin function for usart tx pin
      */
-    gpio_pin_t tx_pin_function;
+    gpio_pin_t tx_pin;
 
     /**
      * @brief pin function for usart rx pin
      */
-    gpio_pin_t rx_pin_function;
+    gpio_pin_t rx_pin;
     /**
      * @brief pin function for usart clk pin
      */
-    gpio_pin_t clk_pin_function;
+    gpio_pin_t clk_pin;
 };
 
 /**

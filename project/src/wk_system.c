@@ -167,7 +167,7 @@ error_status systick_interrupt_config(uint32_t nHz)
 #else
   #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif
-
+void io_putc(int ch);
 /**
   * @brief  retargets the c library printf function to the usart.
   * @param  none
@@ -178,9 +178,7 @@ PUTCHAR_PROTOTYPE
 #if !defined (__GNUC__) || defined (__clang__)
   UNUSED(f);
 #endif
-  while(usart_flag_get(USART1, USART_TDBE_FLAG) == RESET);
-  usart_data_transmit(USART1, (uint16_t)ch);
-  while(usart_flag_get(USART1, USART_TDC_FLAG) == RESET);
+	io_putc(ch);
   return ch;
 }
 

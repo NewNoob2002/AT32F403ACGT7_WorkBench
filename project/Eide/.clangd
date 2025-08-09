@@ -1,7 +1,0 @@
-CompileFlags:
-    Add:
-        - -IC:\Keil_v5\ARM\ARMCLANG/include
-        - -IC:\Keil_v5\ARM\ARMCLANG/include/libcxx
-    Remove: []
-    CompilationDatabase: ./build/AT32F403ACGT7_WorkBench
-    Compiler: C:\Keil_v5\ARM\ARMCLANG\bin\armclang.exe

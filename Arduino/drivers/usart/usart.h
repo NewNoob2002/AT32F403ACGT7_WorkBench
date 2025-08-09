@@ -15,11 +15,14 @@
 
 class Usart : public HardwareSerial
 {
+    typedef void (*CallbackFunction_t)(HardwareSerial *serial);
+
 public:
     Usart(usart_config_t *usart_config, size_t rx_buffer_size = SERIAL_RX_BUFFER_SIZE, size_t tx_buffer_size = SERIAL_TX_BUFFER_SIZE);
     ~Usart();
+    void attachInterrupt(CallbackFunction_t func);
     void begin(uint32_t baud);
-    void begin(uint32_t baud, uint16_t config);
+    void begin(uint32_t baud, uint16_t config, bool irqn_enable = true);
     void end();
     int available();
     int availableForWrite();
@@ -85,17 +88,31 @@ private:
     void rx_dma_init();
     void rx_dma_deinit();
 #endif // USART_RX_DMA_SUPPORT
+
+    void irqHandler();
+
 private:
     usart_config_t *_usart_config;
+    CallbackFunction_t _callbackFunction;
     // tx / rx pin numbers
     gpio_pin_t tx_pin;
     gpio_pin_t rx_pin;
     // rx / tx buffers
-    RingBuffer<uint8_t> *_rx_buffer;
-    RingBuffer<uint8_t> *_tx_buffer;
+    RingBuffer<uint8_t> *rx_buffer;
+    RingBuffer<uint8_t> *tx_buffer;
 
+    uint16_t rx_buffer_size;
+    uint16_t tx_buffer_size;
+
+    bool irqn_enable;
     // is initialized? (begin() called)
-    bool initialized = false;
+    bool initialized;
 };
+
+#ifdef USART1_ENABLE
+extern Usart Serial1;
+
+#define Serial Serial1
+#endif
 
 #endif // USART_H

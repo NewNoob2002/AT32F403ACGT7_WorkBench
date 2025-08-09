@@ -67,7 +67,7 @@ class HardwareSerial : public Stream
 {
 public:
   virtual void begin(uint32_t baud) = 0;
-  virtual void begin(uint32_t baud, uint16_t config) = 0;
+  virtual void begin(uint32_t baud, uint16_t config, bool irqn_enable) = 0;
   virtual void end() = 0;
   virtual int available(void) = 0;
   virtual int peek(void) = 0;

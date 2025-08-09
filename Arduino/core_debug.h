@@ -17,9 +17,13 @@
 #define CORE_ASSERT(expression, message, ...) \
     if (!(expression))                        \
     {                                         \
-        panic("CORE_ASSERT:" message "\n\n"); \
-        __VA_ARGS__;                        \
+        __VA_ARGS__;                          \
     }
+//    if (!(expression))                        \
+//    {                                         \
+//        panic("CORE_ASSERT:" message "\n\n");
+//        __VA_ARGS__;                        \
+//    }
 #endif
 #else // !__CORE_DEBUG
 

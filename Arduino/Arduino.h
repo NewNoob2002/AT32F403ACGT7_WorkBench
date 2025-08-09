@@ -22,6 +22,11 @@
 //wiring
 #ifdef __cplusplus
 #include "drivers/gpio/gpio.h"
+#include "drivers/usart/usart.h"
+#endif
+
+#ifdef __cplusplus
+
 #endif
 
 #include "delay.h"

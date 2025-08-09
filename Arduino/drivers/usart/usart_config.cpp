@@ -7,13 +7,14 @@ usart_config_t USART1_config = {
 			.peripheral_clock_id = CRM_USART1_PERIPH_CLOCK,
 			#if defined(USART1_IOMUX_ENABLE)
 			//.gpio_clock_id = CRM_GPIOB_PERIPH_CLOCK,
-			.tx_pin_function = PB6,
-			.rx_pin_function = PB7,
+			.tx_pin = PB6,
+			.rx_pin = PB7,
+			.clk_pin = PIN_MAX, // USART1 does not use CLK pin
 			#else
-			//.gpio_clock_id = CRM_GPIOA_PERIPH_CLOCK,
-			.tx_pin_function = PA9,
-			.rx_pin_function = PA10,
-			.clk_pin_function = PIN_MAX, // USART1 does not use CLK pin
+			.gpio_clock_id = CRM_GPIOA_PERIPH_CLOCK,
+			.tx_pin = PA9,
+			.rx_pin = PA10,
+			.clk_pin = PIN_MAX, // USART1 does not use CLK pin
 			#endif
 		},
 		.interrupts = {

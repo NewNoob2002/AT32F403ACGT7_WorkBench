@@ -96,11 +96,9 @@ int main(void)
   /* timebase config. */
   wk_timebase_init();
 
-  /* init usart1 function. */
-  wk_usart1_init();
-
   /* add user code begin 2 */
 	pinMode(PA0, OUTPUT);
+  Serial.begin(115200);
   /* add user code end 2 */
 
   while(1)
