@@ -27,13 +27,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "at32f403a_407_wk_config.h"
 #include "wk_debug.h"
-#include "wk_spi.h"
 #include "wk_usart.h"
 #include "wk_system.h"
-#include "Arduino.h"
 /* private includes ----------------------------------------------------------*/
 /* add user code begin private includes */
-
+#include "Arduino.h"
 /* add user code end private includes */
 
 /* private typedef -----------------------------------------------------------*/
