@@ -3,6 +3,7 @@
 
 #include "core/mcu_types.h"
 
+#define ADC1_MAX_CHANNEL_COUNT (ADC_CHANNEL_17 + 1)
 /**
  * @brief ADC peripheral configuration
  */
@@ -17,7 +18,7 @@ typedef struct adc_peripheral_config_t
      * @brief ADC peripheral clock id
      * @note in FCG3
      */
-    uint32_t clock_id;
+    crm_periph_clock_type clock_id;
 		/**
      * @brief ADC peripheral clock div
      * @note in FCG3
@@ -53,9 +54,23 @@ typedef struct adc_init_params_t
 } adc_init_params_t;
 
 /**
+ * @brief ADC init parameters
+ */
+typedef struct adc_dma_config_t
+{
+	/**
+  * @brief ADC dma ch
+  * @note channel
+  */
+	dma_channel_type *dma_ch;
+	
+	confirm_state loop_mode_enable;
+
+} adc_dma_config_t;
+/**
  * @brief ADC device configuration
  */
-typedef struct adc_device_t
+typedef struct adc_config_t
 {
     /**
      * @brief ADC peripheral configuration
@@ -66,11 +81,15 @@ typedef struct adc_device_t
      * @brief ADC init parameters
      */
     adc_init_params_t init_params;
-} adc_device_t;
+	   /**
+     * @brief ADC dma config
+     */
+		adc_dma_config_t dma_config;
+} adc_config_t;
 
 
 //
 // ADC devices
 //
-extern adc_device_t ADC1_device;
+extern adc_config_t ADC1_config;
 #endif

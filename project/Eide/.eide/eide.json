@@ -194,6 +194,12 @@
               },
               {
                 "path": "../../Arduino/drivers/usart/usart_config.cpp"
+              },
+              {
+                "path": "../../Arduino/drivers/adc/adc.cpp"
+              },
+              {
+                "path": "../../Arduino/drivers/adc/adc_config.cpp"
               }
             ],
             "folders": []

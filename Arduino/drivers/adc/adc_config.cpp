@@ -1,6 +1,6 @@
 #include "adc_config.h"
 
-adc_device_t ADC1_device = 
+adc_config_t ADC1_config = 
 {
 	.adc = {
 		.register_base = ADC1,
@@ -12,5 +12,9 @@ adc_device_t ADC1_device =
 		.repeat = TRUE,
 		.data_alignment = ADC_RIGHT_ALIGNMENT,
 		.ordinary_channel_length = 1,
+	},
+	.dma_config = {
+		.dma_ch = DMA1_CHANNEL1,
+		.loop_mode_enable = TRUE,
 	}
 };
