@@ -32,9 +32,9 @@ extern "C" {
 #include <stdio.h>
 #include "at32f403a_407.h"
 
-void wk_timebase_init(void);
-void wk_delay_us(uint32_t delay);
-void wk_delay_ms(uint32_t delay);
+//void wk_timebase_init(void);
+//void wk_delay_us(uint32_t delay);
+//void wk_delay_ms(uint32_t delay);
 
 error_status systick_interrupt_config(uint32_t nHz);
 

@@ -51,7 +51,7 @@ extern "C" {
 #define LEXT_VALUE                       ((uint32_t)32768)   /*!< value of the low speed exernal clock in hz */
 
 /* module define -------------------------------------------------------------*/
-#define ACC_MODULE_ENABLED
+//#define ACC_MODULE_ENABLED
 #define ADC_MODULE_ENABLED
 //#define BPR_MODULE_ENABLED
 //#define CAN_MODULE_ENABLED
@@ -128,7 +128,6 @@ extern "C" {
 #endif
 #ifdef RTC_MODULE_ENABLED
 #include "at32f403a_407_rtc.h"
-#include "rtc.h"
 #endif
 #ifdef SDIO_MODULE_ENABLED
 #include "at32f403a_407_sdio.h"

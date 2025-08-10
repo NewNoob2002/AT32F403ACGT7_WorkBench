@@ -1,0 +1,76 @@
+#ifndef ADC_CONFIG_H
+#define ADC_CONFIG_H
+
+#include "core/mcu_types.h"
+
+/**
+ * @brief ADC peripheral configuration
+ */
+typedef struct adc_peripheral_config_t
+{
+    /**
+     * @brief ADC peripheral register base address
+     */
+    adc_type *register_base;
+
+    /**
+     * @brief ADC peripheral clock id
+     * @note in FCG3
+     */
+    uint32_t clock_id;
+		/**
+     * @brief ADC peripheral clock div
+     * @note in FCG3
+     */
+		crm_adc_div_type clk_div;
+
+    /**
+     * @brief ADC channel count
+     */
+    uint16_t channel_count;
+} adc_peripheral_config_t;
+
+/**
+ * @brief ADC init parameters
+ */
+typedef struct adc_init_params_t
+{
+	   /**
+     * @brief ADC repeat
+     */
+		confirm_state repeat;
+    /**
+     * @brief ADC sample data alignment
+     */
+    adc_data_align_type data_alignment;
+
+    /**
+     * @brief ADC scan mode
+     * @note must include sequence set in peripheral config
+     */
+    uint8_t ordinary_channel_length;
+
+} adc_init_params_t;
+
+/**
+ * @brief ADC device configuration
+ */
+typedef struct adc_device_t
+{
+    /**
+     * @brief ADC peripheral configuration
+     */
+    adc_peripheral_config_t adc;
+
+    /**
+     * @brief ADC init parameters
+     */
+    adc_init_params_t init_params;
+} adc_device_t;
+
+
+//
+// ADC devices
+//
+extern adc_device_t ADC1_device;
+#endif

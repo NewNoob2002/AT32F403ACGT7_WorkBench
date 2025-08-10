@@ -37,11 +37,20 @@ static volatile uint32_t SystemTickCount = 0;
   * @param  无
   * @retval 无
   */
-void Delay_Init(void)
+void Delay_Init()
 {
-//    SystemCoreClockUpdate();
-//    SysTick_Config(SYSTICK_LOAD_VALUE);
-//    NVIC_SetPriority(SysTick_IRQn, SYSTICK_PRIORITY);
+  /* config systick clock source */
+  systick_clock_source_config(SYSTICK_CLOCK_SOURCE_AHBCLK_NODIV);
+
+  if ((SYSTICK_LOAD_VALUE - 1UL) > SysTick_LOAD_RELOAD_Msk)
+  {
+    return;
+  }
+
+  SysTick->LOAD  = (uint32_t)(SYSTICK_LOAD_VALUE - 1UL);
+  SysTick->VAL   = 0UL;
+  SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk |
+                   SysTick_CTRL_ENABLE_Msk;
 }
 
 /**

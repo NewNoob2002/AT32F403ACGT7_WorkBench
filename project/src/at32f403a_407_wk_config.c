@@ -171,9 +171,6 @@ void wk_system_clock_config(void)
   */
 void wk_periph_clock_config(void)
 {
-  /* enable iomux periph clock */
-  crm_periph_clock_enable(CRM_IOMUX_PERIPH_CLOCK, TRUE);
-
   /* enable gpioa periph clock */
   crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
 

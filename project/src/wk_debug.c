@@ -38,6 +38,8 @@
   */
 void wk_debug_config(void)
 {
+	/* enable iomux periph clock */
+  crm_periph_clock_enable(CRM_IOMUX_PERIPH_CLOCK, TRUE);
   /* jtag-dp disabled and sw-dp enabled */
   gpio_pin_remap_config(SWJTAG_GMUX_010, TRUE);
 }
