@@ -14,6 +14,7 @@ bool ADC::addOrdinaryChannel(uint16_t channel)
 		this->isInitilized[channel] = true;
 		this->adc_ch_enable_count++;
 	}
+	return true;
 }
 
 void ADC::begin()

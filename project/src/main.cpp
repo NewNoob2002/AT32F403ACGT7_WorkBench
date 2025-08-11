@@ -27,6 +27,7 @@ int main(void)
 
   /* add user code begin 2 */
 	pinMode(PA0, OUTPUT);
+	pinMode(PA1, OUTPUT);
   Serial.begin(115200);
   /* add user code end 2 */
 
@@ -34,6 +35,8 @@ int main(void)
   {
     /* add user code begin 3 */
 		digitalToggle(PA0);
+		printf("HelloWorld\n");
+		digitalToggle(PA1);
 		delay_ms(1000);
     /* add user code end 3 */
   }

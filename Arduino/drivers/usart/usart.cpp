@@ -161,7 +161,6 @@ void Usart::begin(uint32_t baud, uint16_t config, bool irqn_enable)
         // Enable RX buffer full interrupt
         usart_interrupt_enable(this->_usart_config->peripheral.register_base, USART_RDBF_INT, TRUE);
         // Enable TX buffer empty interrupt not call here, called in write()
-        //usart_interrupt_enable(this->_usart_config->peripheral.register_base, USART_TDBE_INT, TRUE);
 
 #if defined(USART_RX_ERROR_COUNTERS_ENABLE)
         // Enable RX error interrupts
@@ -240,7 +239,7 @@ size_t Usart::write(uint8_t ch)
     // if uninitialized, ignore write
        if (!this->initialized)
        {
-           return 1;
+           return 0;
        }
 
        // wait until tx buffer is no longer full
@@ -258,11 +257,6 @@ size_t Usart::write(uint8_t ch)
     // enable tx + empty interrupt
     usart_transmitter_enable(this->_usart_config->peripheral.register_base, TRUE);
     usart_interrupt_enable(this->_usart_config->peripheral.register_base, USART_TDBE_INT, TRUE);
-    // while (Reset == USART_GetStatus(this->config->peripheral.register_base, UsartTxEmpty)) /* Warit Tx data register empty */
-    // {
-    // }
-    // USART_SendData(this->config->peripheral.register_base, ch);
-
     // wrote one byte
     return 1;
 }

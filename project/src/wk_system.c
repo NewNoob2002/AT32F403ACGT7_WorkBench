@@ -143,6 +143,7 @@ volatile uint32_t ticks_count_us;
     UNUSED(ch);
   }
   FILE __stdout;
+	FILE __stderr;
 #else
  #ifdef __CC_ARM
   #pragma import(__use_no_semihosting)
@@ -179,7 +180,7 @@ PUTCHAR_PROTOTYPE
 #if !defined (__GNUC__) || defined (__clang__)
   UNUSED(f);
 #endif
-	//io_putc(ch);
+	io_putc(ch);
   return ch;
 }
 

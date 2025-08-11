@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "delay.h": "c",
+        "mcu_types.h": "c",
+        "stdbool.h": "c"
+    }
+}
