@@ -22,6 +22,7 @@
 //wiring
 #ifdef __cplusplus
 #include "drivers/gpio/gpio.h"
+#include "drivers/adc/adc.h"
 #include "drivers/usart/usart.h"
 #endif
 

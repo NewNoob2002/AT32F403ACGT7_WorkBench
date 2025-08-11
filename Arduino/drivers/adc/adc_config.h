@@ -45,12 +45,6 @@ typedef struct adc_init_params_t
      */
     adc_data_align_type data_alignment;
 
-    /**
-     * @brief ADC scan mode
-     * @note must include sequence set in peripheral config
-     */
-    uint8_t ordinary_channel_length;
-
 } adc_init_params_t;
 
 /**
@@ -64,6 +58,10 @@ typedef struct adc_dma_config_t
   */
 	dma_channel_type *dma_ch;
 	
+	crm_periph_clock_type dma_clk;
+	
+	IRQn_Type dma_irq;
+	
 	confirm_state loop_mode_enable;
 
 } adc_dma_config_t;
@@ -75,7 +73,7 @@ typedef struct adc_config_t
     /**
      * @brief ADC peripheral configuration
      */
-    adc_peripheral_config_t adc;
+    adc_peripheral_config_t peripheral;
 
     /**
      * @brief ADC init parameters

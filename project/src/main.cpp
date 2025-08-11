@@ -26,17 +26,14 @@ int main(void)
   wk_nvic_config();
 
   /* add user code begin 2 */
-	pinMode(PA0, OUTPUT);
-	pinMode(PA1, OUTPUT);
-  Serial.begin(115200);
+	Serial.begin(115200);
+	pinMode(PA2, OUTPUT);
   /* add user code end 2 */
 
   while(1)
   {
     /* add user code begin 3 */
-		digitalToggle(PA0);
-		printf("HelloWorld\n");
-		digitalToggle(PA1);
+		digitalToggle(PA2);
 		delay_ms(1000);
     /* add user code end 3 */
   }
