@@ -63,9 +63,6 @@ void SPIClass::SPI_Settings(
     SPI_InitStructure.clock_polarity = SPI_CPOL_x;
     SPI_InitStructure.clock_phase = SPI_CPHA_x;
     SPI_InitStructure.cs_mode_selection = SPI_NSS_x;
-    spi_init(this->spi_config->peripheral.register_base, &this->SPI_InitStructure);
-
-    spi_enable(this->spi_config->peripheral.register_base, TRUE);
 }
 
 void SPIClass::begin()
@@ -86,14 +83,18 @@ void SPIClass::begin()
                  SPI_FRAME_8BIT,
                  SPI_MODE0,
                  SPI_CS_SOFTWARE_MODE,
-                 SPI_MCLK_DIV_4,
+                 SPI_MCLK_DIV_2,
                  SPI_FIRST_BIT_MSB);
+    spi_init(this->spi_config->peripheral.register_base, &this->SPI_InitStructure);
+
+    spi_enable(this->spi_config->peripheral.register_base, TRUE);
     this->initialized = true;
 }
 
 void SPIClass::begin(uint32_t clock, uint16_t dataOrder, uint16_t dataMode)
 {
     begin();
+    spi_enable(this->spi_config->peripheral.register_base, FALSE);
     setClock(clock);
     setBitOrder(dataOrder);
     setDataMode(dataMode);

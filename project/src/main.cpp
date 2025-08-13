@@ -10,7 +10,6 @@
 #include "MillisTaskManager.h"
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7789.h>
-#include "Fonts/FreeMono12pt7b.h"
 
 typedef Adafruit_ST7789 SCREEN_CLASS;
 
@@ -129,7 +128,8 @@ int main(void)
 	screen.setRotation(1);
 	screen.setTextSize(3);
 	screen.fillScreen(RED);
-	screen.print("HelloWorld\n");
+	screen.println("HelloWorld");
+	screen.printf("F_CPU:%dMhz", F_CPU/1000000);
 	rtkParse = sempBeginParser(rtkParserTable, rtkParserCount,
 							   rtkParserNames, rtkParserNameCount,
 							   0, 3000, processUart1Message, "NemaParser");
