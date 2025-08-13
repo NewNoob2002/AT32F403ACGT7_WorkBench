@@ -85,6 +85,9 @@ void led_task()
 			digitalToggle(PA2);
 		}
 	}
+	screen.setCursor(0, 70);
+	screen.printf("SV:%d\n", numSv);
+	screen.printf("Interval:%d", interval);
 }
 
 void parser_task()
