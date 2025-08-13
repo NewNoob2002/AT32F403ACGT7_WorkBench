@@ -2,17 +2,14 @@
 #define __GPIO_H
 #include <stdint.h>
 #include <stdbool.h>
-#include "core/mcu_types.h"
 #include "core_debug.h"
-// #include "drivers/adc/adc.h"
+#include "core/mcu_types.h"
+#include "wiring_constants.h"
+#include "drivers/adc/adc.h"
 
 #ifdef __cplusplus
 extern "C"
 {
-#endif
-
-#ifndef NULL
-#define NULL ((void *)0)
 #endif
 
 	typedef enum
@@ -32,26 +29,6 @@ extern "C"
 #endif
 		PIN_MAX
 	} Pin_TypeDef;
-
-	typedef enum
-	{
-		INPUT,
-		INPUT_PULLUP,
-		INPUT_PULLDOWN,
-		INPUT_ANALOG,
-		INPUT_ANALOG_DMA,
-		OUTPUT,
-		OUTPUT_OPEN_DRAIN,
-		OUTPUT_AF_OD,
-		OUTPUT_AF_PP,
-		PWM
-	} PinMode_TypeDef;
-
-	typedef enum
-	{
-		LOW = 0,
-		HIGH = 1,
-	} PinState_TypeDef;
 
 	/**
 	 * @brief adc info for a pin
@@ -140,7 +117,7 @@ extern "C"
 		/**
 		 * @brief IO port this pin belongs to
 		 */
-		GPIO_TypeDef *GPIOx;
+		gpio_type *GPIOx;
 
 #ifdef __cplusplus
 		/**
@@ -167,8 +144,14 @@ extern "C"
 	/**
 	 * @brief GPIO pin map
 	 */
-	extern const pin_info_t PIN_MAP[PIN_MAX];
+extern const pin_info_t PIN_MAP[PIN_MAX];
+extern const uint32_t analogInputPin[];
 
+#define portOutputRegister(P)       (&(P->odt))
+#define portInputRegister(P)        (&(P->idt))
+	
+#define digitalPinToPort(Pin)       (PIN_MAP[Pin].GPIOx)
+#define digitalPinToBitMask(Pin)    (PIN_MAP[Pin].bit_mask())
 /**
  * @brief test if a gpio pin number is valid
  */
@@ -184,14 +167,11 @@ extern "C"
 
 #ifdef __cplusplus // c++ special function
 
-#define PinToPort(Pin)       (PIN_MAP[Pin].GPIOx)
-#define PinToBitMask(Pin)    (PIN_MAP[Pin].bit_mask())
-
 inline void GPIO_Init(gpio_pin_t gpio_pin, gpio_init_type *gpio_init_struct)
 {
 	ASSERT_GPIO_PIN_VALID(gpio_pin, "GPIO_Init");
-	gpio_init_struct->gpio_pins = PinToBitMask(gpio_pin);
-	gpio_type *gpiox = PinToPort(gpio_pin);
+	gpio_init_struct->gpio_pins = digitalPinToBitMask(gpio_pin);
+	gpio_type *gpiox = digitalPinToPort(gpio_pin);
 	if(gpiox == GPIOA)
 	{
 		crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
@@ -213,31 +193,31 @@ inline void GPIO_Init(gpio_pin_t gpio_pin, gpio_init_type *gpio_init_struct)
 		crm_periph_clock_enable(CRM_GPIOE_PERIPH_CLOCK, TRUE);
 	}
 	gpio_init(gpiox, gpio_init_struct);
-	gpiox->clr = gpio_init_struct->gpio_pins;
+	//gpiox->clr = gpio_init_struct->gpio_pins;
 }
 
 inline uint8_t GPIO_ReadPin(gpio_pin_t gpio_pin)
 {
 	ASSERT_GPIO_PIN_VALID(gpio_pin, "GPIO_ReadPin");
-	return PinToPort(gpio_pin)->idt & PinToBitMask(gpio_pin);
+	return digitalPinToPort(gpio_pin)->idt & digitalPinToBitMask(gpio_pin);
 }
 
 inline void GPIO_SetPin(gpio_pin_t gpio_pin)
 {
 	ASSERT_GPIO_PIN_VALID(gpio_pin, "GPIO_SetPin");
-	PinToPort(gpio_pin)->scr = PinToBitMask(gpio_pin);
+	digitalPinToPort(gpio_pin)->scr = digitalPinToBitMask(gpio_pin);
 }
 
 inline void GPIO_ResetPin(gpio_pin_t gpio_pin)
 {
 	ASSERT_GPIO_PIN_VALID(gpio_pin, "GPIO_ResetPin");
-	PinToPort(gpio_pin)->clr = PinToBitMask(gpio_pin);
+	digitalPinToPort(gpio_pin)->clr = digitalPinToBitMask(gpio_pin);
 }
 
 inline void GPIO_TogglePin(gpio_pin_t gpio_pin)
 {
 	ASSERT_GPIO_PIN_VALID(gpio_pin, "GPIO_TogglePin");
-	PinToPort(gpio_pin)->odt ^= PinToBitMask(gpio_pin);
+	digitalPinToPort(gpio_pin)->odt ^= digitalPinToBitMask(gpio_pin);
 }
 
 /**
@@ -246,7 +226,7 @@ inline void GPIO_TogglePin(gpio_pin_t gpio_pin)
  * \param gpio_pin The number of the pin whose mode you wish to set
  * \param pin_mode Can be INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN, OUTPUT_PWM
  */
-extern void pinMode(gpio_pin_t gpio_pin, const PinMode_TypeDef pin_mode, gpio_drive_type dirve_type = GPIO_DRIVE_STRENGTH_STRONGER);
+extern void pinMode(gpio_pin_t gpio_pin, const int pin_mode, gpio_drive_type dirve_type = GPIO_DRIVE_STRENGTH_STRONGER);
 #endif //__cplusplus
 /**
  * \brief Write a HIGH or a LOW value to a digital pin.
@@ -268,7 +248,7 @@ extern void pinMode(gpio_pin_t gpio_pin, const PinMode_TypeDef pin_mode, gpio_dr
  * \param gpio_pin the pin number
  * \param pin_state HIGH or LOW
  */
-extern void digitalWrite(gpio_pin_t gpio_pin, const PinState_TypeDef pin_state);
+extern void digitalWrite(gpio_pin_t gpio_pin, const int pin_state);
 /**
  * \brief Reads the value from a specified digital pin, either HIGH or LOW.
  *

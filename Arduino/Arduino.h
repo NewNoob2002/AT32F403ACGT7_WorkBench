@@ -19,37 +19,26 @@
 
 #ifndef Arduino_h
 #define Arduino_h
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+#include "binary.h"
+#include "avr/pgmspace.h"
 //wiring
 #ifdef __cplusplus
-#include "drivers/gpio/gpio.h"
 #include "drivers/adc/adc.h"
+#include "drivers/gpio/gpio.h"
 #include "drivers/usart/usart.h"
 #endif
 
-#ifdef __cplusplus
-
-#endif
-
+#include "wiring_constants.h"
 #include "delay.h"
 
-// undefine stdlib's abs if encountered
-#ifdef abs
-#undef abs
-#endif // abs
+#define delay(ms)                    delay_ms(ms)
+#define delayMicroseconds(us)        delay_us(us)
 
-#define min(a,b) ((a)<(b)?(a):(b))
-#define max(a,b) ((a)>(b)?(a):(b))
-#define abs(x) ((x)>0?(x):-(x))
-#define constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
-#define round(x)     ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
-#define radians(deg) ((deg)*DEG_TO_RAD)
-#define degrees(rad) ((rad)*RAD_TO_DEG)
-#define sq(x) ((x)*(x))
-
-#define interrupts() __enable_irq()
-#define noInterrupts() __disable_irq()
-
-#define lowByte(w) ((uint8_t) ((w) & 0xff))
-#define highByte(w) ((uint8_t) ((w) >> 8))
+#ifdef __cplusplus
+#include "SPI.h"
+#endif
 
 #endif

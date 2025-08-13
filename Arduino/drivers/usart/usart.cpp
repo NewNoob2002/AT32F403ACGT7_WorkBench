@@ -147,11 +147,8 @@ void Usart::begin(uint32_t baud, uint16_t config, bool irqn_enable)
     }
 
     usart_init(this->_usart_config->peripheral.register_base, baud, USART_DATA_8BITS, stop_bits);
-    //usart_transmitter_enable(this->_usart_config->peripheral.register_base, TRUE);
+    usart_transmitter_enable(this->_usart_config->peripheral.register_base, TRUE);
     usart_receiver_enable(this->_usart_config->peripheral.register_base, TRUE);
-		// Enable USART
-    usart_enable(this->_usart_config->peripheral.register_base, TRUE);
-    this->initialized = true;
     // register IRQ
     if (this->irqn_enable)
     {
@@ -168,6 +165,9 @@ void Usart::begin(uint32_t baud, uint16_t config, bool irqn_enable)
         usart_interrupt_enable(this->_usart_config->peripheral.register_base, USART_ERR_INT, TRUE);
 #endif
     }
+		// Enable USART
+    usart_enable(this->_usart_config->peripheral.register_base, TRUE);
+    this->initialized = true;
 }
 void Usart::end()
 {
@@ -255,8 +255,10 @@ size_t Usart::write(uint8_t ch)
        }
 
     // enable tx + empty interrupt
-    usart_transmitter_enable(this->_usart_config->peripheral.register_base, TRUE);
+    //usart_transmitter_enable(this->_usart_config->peripheral.register_base, TRUE);
     usart_interrupt_enable(this->_usart_config->peripheral.register_base, USART_TDBE_INT, TRUE);
+		//while(usart_flag_get(this->_usart_config->peripheral.register_base, USART_TDBE_FLAG) == RESET);
+		//usart_data_transmit(this->_usart_config->peripheral.register_base, ch);
     // wrote one byte
     return 1;
 }
@@ -266,9 +268,8 @@ void Usart::irqHandler()
     // check if the RX Data Buffer Full Register is full
     if (usart_interrupt_flag_get(this->_usart_config->peripheral.register_base, USART_RDBF_FLAG) != RESET)
     {
-        usart_flag_clear(this->_usart_config->peripheral.register_base, USART_RDBF_FLAG);
         /* read one byte from the receive data register */
-        uint8_t ch = usart_data_receive(USART3);
+        uint8_t ch = usart_data_receive(this->_usart_config->peripheral.register_base);
         core_hook_usart_rx_irq(ch, USART_REG_TO_X(this->_usart_config->peripheral.register_base));
         bool rxOverrun;
         this->rx_buffer->push(ch, /*force*/ true, rxOverrun);
@@ -281,6 +282,7 @@ void Usart::irqHandler()
             usartx->state.rx_error_counters.rx_data_dropped++;
 #endif
         }
+				usart_flag_clear(this->_usart_config->peripheral.register_base, USART_RDBF_FLAG);
     }
     // check if the TX Empty Register is empty
     if(usart_interrupt_flag_get(this->_usart_config->peripheral.register_base, USART_TDBE_FLAG) != RESET)
@@ -308,7 +310,7 @@ void Usart::irqHandler()
     {
         // disable TX Data Complete interrupt
         usart_interrupt_enable(this->_usart_config->peripheral.register_base, USART_TDC_INT, FALSE);
-        usart_transmitter_enable(this->_usart_config->peripheral.register_base, FALSE);
+        //usart_transmitter_enable(this->_usart_config->peripheral.register_base, FALSE);
 			  usart_flag_clear(this->_usart_config->peripheral.register_base, USART_TDC_FLAG);
     }
 

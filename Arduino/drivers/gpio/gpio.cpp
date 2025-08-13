@@ -1,7 +1,7 @@
 #include "drivers/adc/adc.h"
 #include "gpio.h"
 
-void pinMode(gpio_pin_t gpio_pin, const PinMode_TypeDef pin_mode, gpio_drive_type dirve_type)
+void pinMode(gpio_pin_t gpio_pin, const int pin_mode, gpio_drive_type dirve_type)
 {
   ASSERT_GPIO_PIN_VALID(gpio_pin, "pinMode");
 	gpio_init_type gpio_init_struct;
@@ -58,7 +58,10 @@ void pinMode(gpio_pin_t gpio_pin, const PinMode_TypeDef pin_mode, gpio_drive_typ
 			break;
 		case OUTPUT_AF_PP:
 			gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
-			gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
+			break;
+		case OUTPUT_AF_PP_DOWN:
+			gpio_init_struct.gpio_pull = GPIO_PULL_DOWN;
+			gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
 			break;
 		case PWM:
 			break;
@@ -67,7 +70,7 @@ void pinMode(gpio_pin_t gpio_pin, const PinMode_TypeDef pin_mode, gpio_drive_typ
 	GPIO_Init(gpio_pin, &gpio_init_struct);
 }
 
-void digitalWrite(gpio_pin_t gpio_pin, const PinState_TypeDef pin_state)
+void digitalWrite(gpio_pin_t gpio_pin, const int pin_state)
 {
 	ASSERT_GPIO_PIN_VALID(gpio_pin, "digitalWrite");
 	if(pin_state == HIGH)

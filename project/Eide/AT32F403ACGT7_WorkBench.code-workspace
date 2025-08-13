@@ -22,7 +22,9 @@
             "*.c++": "cpp",
             "*.cpp": "cpp",
             "*.cxx": "cpp",
-            "*.cc": "cpp"
+            "*.cc": "cpp",
+            "initializer_list": "cpp",
+            "__config": "cpp"
         },
         "[yaml]": {
             "editor.insertSpaces": true,

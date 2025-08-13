@@ -336,9 +336,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>AT32F403ACGT7,USE_STDPERIPH_DRIVER,AT_START_F403A_V1,__CORE_DEBUG</Define>
+              <Define>AT32F403ACGT7,USE_STDPERIPH_DRIVER,AT_START_F403A_V1,__CORE_DEBUG, ARDUINO=111</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\libraries\drivers\inc;..\..\libraries\cmsis\cm4\core_support;..\..\libraries\cmsis\cm4\device_support;..\..\Arduino;..\..\platform;..\inc</IncludePath>
+              <IncludePath>..\..\libraries\drivers\inc;..\..\libraries\cmsis\cm4\core_support;..\..\libraries\cmsis\cm4\device_support;..\..\libraries;..\..\libraries\lwmem\src\include;..\..\libraries\MillisTaskManager;..\..\libraries\Parser;..\..\libraries\Adafruit_GFX;..\..\libraries\Adafruit_ST77xx;..\..\libraries\Adafruit_BusIO;..\..\Arduino;..\..\Arduino\libraries\Wire\src;..\..\Arduino\libraries\SPI\src;..\..\platform;..\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -753,6 +753,121 @@
               <FileName>adc_config.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\..\Arduino\drivers\adc\adc_config.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Arduino/libraries</GroupName>
+          <Files>
+            <File>
+              <FileName>SPI.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\Arduino\libraries\SPI\src\SPI.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SPI_config.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\Arduino\libraries\SPI\src\SPI_config.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Wire.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\Arduino\libraries\Wire\src\Wire.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>libraries/Parser</GroupName>
+          <Files>
+            <File>
+              <FileName>Parse_NMEA.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Parser\Parse_NMEA.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SparkFun_Extensible_Message_Parser.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Parser\SparkFun_Extensible_Message_Parser.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>libraries/lwmem</GroupName>
+          <Files>
+            <File>
+              <FileName>lwmem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\lwmem\src\lwmem\lwmem.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>libraries/MillisTaskManager</GroupName>
+          <Files>
+            <File>
+              <FileName>MillisTaskManager.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\MillisTaskManager\MillisTaskManager.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>libraries/Adafruit_GFX_Library</GroupName>
+          <Files>
+            <File>
+              <FileName>glcdfont.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\Adafruit_GFX\glcdfont.c</FilePath>
+            </File>
+            <File>
+              <FileName>Adafruit_GFX.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Adafruit_GFX\Adafruit_GFX.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Adafruit_SPITFT.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Adafruit_GFX\Adafruit_SPITFT.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>libraries/Adafruit_ST7789</GroupName>
+          <Files>
+            <File>
+              <FileName>Adafruit_ST7789.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Adafruit_ST77xx\Adafruit_ST7789.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Adafruit_ST77xx.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Adafruit_ST77xx\Adafruit_ST77xx.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>libraries/Adafruit_BusIO</GroupName>
+          <Files>
+            <File>
+              <FileName>Adafruit_BusIO_Register.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Adafruit_BusIO\Adafruit_BusIO_Register.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Adafruit_GenericDevice.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Adafruit_BusIO\Adafruit_GenericDevice.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Adafruit_I2CDevice.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Adafruit_BusIO\Adafruit_I2CDevice.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Adafruit_SPIDevice.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\libraries\Adafruit_BusIO\Adafruit_SPIDevice.cpp</FilePath>
             </File>
           </Files>
         </Group>

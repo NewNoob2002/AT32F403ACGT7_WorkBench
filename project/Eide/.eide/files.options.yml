@@ -19,3 +19,4 @@ options:
         files: {}
         virtualPathFiles:
             <virtual_root>/Arduino/variant.cpp: ""
+            <virtual_root>/Arduino/drivers/gpio.cpp: ""
